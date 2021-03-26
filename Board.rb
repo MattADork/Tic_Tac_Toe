@@ -13,7 +13,3 @@ BOARD = "          1 | 2 | 3
 # spot_seven = board[94]
 # spot_eight = board[98]
 # spot_nine = board[102]
-
-def say_hi
-  puts "hi"
-end
