@@ -4,6 +4,12 @@ BOARD = "          1 | 2 | 3
          ---+---+---
           7 | 8 | 9 "
 
+
+def display_board(board)
+  puts
+  puts board
+  puts
+end
 # spot_one = board[10]
 # spot_two = board[14]
 # spot_three = board[18]
