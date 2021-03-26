@@ -4,28 +4,17 @@ require_relative 'Players'
 
 board = BOARD
 
-def player_one_go(player_one, board)
-  puts "Where would you like to go, #{player_one.name}? [Pick 1-9]"
-  play = gets.chomp.to_s
-  if play == "1"
-    if board[10] != "1"
-      puts "Sorry, that spot is already taken."
-      return player_one_go(player_one, board)
-    end
-    board[10] = player_one.token
-  elsif play == "2"
-    if board[14] != "2"
-      puts "Sorry, that spot is already taken."
-      return player_one_go(player_one, board)
-    end
-    board[14] = player_one.token
-  else
-    puts "Invalid, please pick again"
-    return player_one_go(player_one, board)
-  end
+def fresh_board
+  return "          1 | 2 | 3 
+         ---+---+---
+          4 | 5 | 6 
+         ---+---+---
+          7 | 8 | 9 "
 end
 
+
 def game(board)
+  board = fresh_board
   display_board(board)
 
   p1_name = get_player_one_name
@@ -38,7 +27,33 @@ def game(board)
   display_board(board)
   player_one_go(player_one, board)
   display_board(board)
-
+  game_won(board)
+  player_two_go(player_two, board)
+  display_board(board)
+  game_won(board)
+  player_one_go(player_one, board)
+  display_board(board)
+  game_won(board)
+  player_two_go(player_two, board)
+  display_board(board)
+  game_won(board)
+  player_one_go(player_one, board)
+  display_board(board)
+  game_won(board)
+  player_two_go(player_two, board)
+  display_board(board)
+  game_won(board)
+  player_one_go(player_one, board)
+  display_board(board)
+  game_won(board)
+  player_two_go(player_two, board)
+  display_board(board)
+  game_won(board)
+  player_one_go(player_one, board)
+  display_board(board)
+  game_won(board)
+  player_two_go(player_two, board)
+  display_board(board)
   game_won(board)
 end
 
