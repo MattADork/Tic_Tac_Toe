@@ -24,21 +24,25 @@ def check_win(board)
   end
 end
 
-def game_won(board)
+def game_won(board, player_one, player_two)
   if check_win(board) == true
     puts "You won the game!"
     puts "Play again? (y/n)"
+    prompt
     answer = gets.chomp.downcase
     if answer == "y"
-      return game(board)
+      return new_game(board, player_one, player_two)
+    elsif answer == "n"
+      exit
+    else
+      return game_won(board, player_one, player_two)
     end
-  else
-    return
   end
 end
 
 def player_one_go(player_one, board)
   puts "Where would you like to go, #{player_one.name}? [Pick 1-9]"
+  prompt
   play = gets.chomp.to_s
   if play == "1"
     if board[10] != "1"
@@ -102,6 +106,7 @@ end
 
 def player_two_go(player_two, board)
   puts "Where would you like to go, #{player_two.name}? [Pick 1-9]"
+  prompt
   play = gets.chomp.to_s
   if play == "1"
     if board[10] != "1"
@@ -159,6 +164,6 @@ def player_two_go(player_two, board)
     board[102] = player_two.token
   else
     puts "Invalid, please pick again"
-    return player_two_go(player_one, board)
+    return player_two_go(player_two, board)
   end
 end
